@@ -45,7 +45,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            I'll touch alex
+            I&apos;ll touch alex
           </a>
         </div>
       </main>
