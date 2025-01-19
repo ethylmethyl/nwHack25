@@ -1,0 +1,11 @@
+cst,location,descr,rooms,ppl,length,laundry,parking,gender,floor,pets
+1500,Brock Commons,Ocean View!,4,,,"True",,Male,bottom,
+3000,Exchange,,1,,"From Dec 12 to January 31",,True,,,
+1200,Marine Drive,Nice apartment with a park view.,2,1,"6 months lease",True,True,Female,bottom,False
+2500,Ponderosa Commons,Spacious house with a large backyard.,3,4,"1 year lease",True,True,No preference,middle,True1500,Location.WESBROOK_VILLAGE,,5,2,12 weeks,False,True,male,,True
+1000,Brock Commons,"very spacious apartment for rent, friendly neighbors and very convinient",4,2,2 months,True,True,,,False
+1000,Ponderosa Commons,very spacious apartment with ocean view!,3,2,2 months,True,True,,,True
+10000,Brock Commons,Very nice place!,3,,2 months,True,True,,,True
+1500,Iona House,"Good neighbors, Nicw view, Near bus",2,,1 year,True,False,,,True
+1200,Richmond,good floor,2,1,5 months,True,False,,,True
+1,Wesbrook Village,nice,1,2,3,True,False,male,Floor.BOTTOM,True
