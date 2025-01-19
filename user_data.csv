@@ -8,4 +8,5 @@ cst,location,descr,rooms,ppl,length,laundry,parking,gender,floor,pets
 10000,Brock Commons,Very nice place!,3,,2 months,True,True,,,True
 1500,Iona House,"Good neighbors, Nicw view, Near bus",2,,1 year,True,False,,,True
 1200,Richmond,good floor,2,1,5 months,True,False,,,True
-1,Wesbrook Village,nice,1,2,3,True,False,male,Floor.BOTTOM,True
+1000,Wesbrook Village,nice,1,2,3,True,False,male,bottom,True
+
