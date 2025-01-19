@@ -4,23 +4,6 @@ from typing import NamedTuple
 from typing import Optional
 from enum import Enum
 
-# Enum for locations
-class Location(Enum):
-    BROCK_COMMONS = "Brock Commons"
-    EXCHANGE = "Exchange"
-    FAIRVIEW_CRESCENT = "Fairview Crescent"
-    FRASER_HALL = "Fraser Hall"
-    GREEN_COLLEGE = "Green College"
-    IONA_HOUSE = "Iona House"
-    MARINE_DRIVE = "Marine Drive"
-    PONDEROSA_COMMONS = "Ponderosa Commons"
-    ST_JOHNS_COLLEGE = "St. John’s College"
-    TESHXWHELELMS_TEKWAƛKEʔAʔL = "tə šxʷhəleləm̓s tə k̓ʷaƛ̓kʷəʔaʔɬ"
-    WESBROOK_VILLAGE = "Wesbrook Village"
-    KITSILANO = "Kitsilano"
-    RICHMOND = "Richmond"
-    WEST_POINT_GREY = "West Point Grey"
-
 # Enum for floor preference
 class Floor(Enum):
     BOTTOM = "bottom"
@@ -30,7 +13,7 @@ class Floor(Enum):
 # Data structure to hold user data
 class UserData(NamedTuple):
     cst: int  # Cost (required integer)
-    location: str  # Location (string)
+    location: bool  # Location (True is on Campus False, off)
     descr: Optional[str]  # Description (optional string)
     rooms: Optional[int]  # Number of rooms (optional integer)
     ppl: Optional[int]  # Number of people (optional integer)
@@ -69,25 +52,6 @@ def get_integer_input(prompt, min_value=None, max_value=None):
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-def get_valid_location_input(prompt, valid_locations):
-    """
-    Prompts the user for location input and ensures it's from the valid options.
-
-    Args:
-        prompt: The message to display to the user.
-        valid_locations: A list of valid location strings.
-
-    Returns:
-        The chosen location as a string, or None if the input is empty.
-    """
-    while True:
-        user_input = input(prompt).strip().lower()
-        if not user_input:  # Handle empty input for optional fields
-            return None
-        if user_input in [location.lower() for location in valid_locations]:
-            return user_input
-        else:
-            print(f"Invalid location. Please choose from: {', '.join(valid_locations)}")
 
 def get_yes_no_input(prompt):
     """
@@ -145,21 +109,14 @@ def create_and_append_post_to_csv(filename: str):
     print("Enter the details for the new post:")
 
     # Get basic data for the post
-    cst = get_integer_input("Cost (in integer): ")
+    cst = get_integer_input("Cost (per/month in dollars): ")
 
-    # Get valid location input
-    valid_locations = [location.value for location in Location]
-    location_input = get_valid_location_input(
-        "Location (choose from: " + ', '.join(valid_locations) + "): ",
-        valid_locations
-    )
-    location = location_input  # Store the location as a string
-
+    location = get_yes_no_input("On Campus? (yes/no): ")
     rooms = get_integer_input("Number of rooms (optional): ", 1, 100) 
-    ppl = get_integer_input("Number of people (optional): ", 1, 100) 
+    ppl = get_integer_input("Number of tenants (optional): ", 1, 100) 
 
     length = input("Lease length (optional, e.g., '6 months', '1 year'): ") or None
-    laundry = get_yes_no_input("Laundry available? (yes/no): ")
+    laundry = get_yes_no_input("Laundry in unit available? (yes/no): ")
     parking = get_yes_no_input("Parking available? (yes/no): ")
     gender = input("Gender preference (optional): ") or None
 
